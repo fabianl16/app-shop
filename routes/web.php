@@ -1,10 +1,10 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TestController@welcome');
 
-Route::get('/prueba', function () {
-    return 'Hola mundo';
-});
 
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
