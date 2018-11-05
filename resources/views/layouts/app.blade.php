@@ -47,7 +47,12 @@
             {{ Auth::user()->name }} <span class="caret"></span>
         </a>
 
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu" role="menu">
+            @if (auth()->user()->admin)
+            <li>
+                <a href=" {{ url('/admin/products')}} ">Gestionar productos</a>
+            </li>
+            @endif
             <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -62,22 +67,7 @@
         </ul>
     </li>
 @endguest
-                    <!--<li>
-                        <a href="https://twitter.com/CreativeTim" target="_blank" class="btn btn-simple btn-white btn-just-icon">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.facebook.com/CreativeTim" target="_blank" class="btn btn-simple btn-white btn-just-icon">
-                            <i class="fa fa-facebook-square"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/CreativeTimOfficial" target="_blank" class="btn btn-simple btn-white btn-just-icon">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                    </li>-->
-                </ul>
+</ul>
             </div>
     </div>
     </nav>
