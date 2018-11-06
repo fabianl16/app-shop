@@ -15,7 +15,7 @@ public function index ($id)
 {
 
 $product = Product::find($id);
-$images = $product->images;
+$images = $product->images()->orderBy('featured', 'desc')->get();
 
 return view('admin.products.images.index')->with(compact('product', 'images'));
 }
@@ -66,7 +66,7 @@ return back();
 
 public function select($id, $image)
 {
-	ProductImage::where('product_id,', $id)->update([
+	ProductImage::where('product_id', $id)->update([
 		'featured' => false]);
 
 

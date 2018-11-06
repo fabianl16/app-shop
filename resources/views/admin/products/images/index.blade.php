@@ -43,9 +43,16 @@
             {{ method_field('DELETE') }}
                <input type="hidden" name="image_id" value="{{ $image->id }}">
                <button type="submit" class="btn btn-danger">Eliminar</button>
+               @if ($image->featured)
+               <button type="button" class="btn btn-info btn-fab btn-fab-mini btn-round" rel="tooltip" title="Caratula">
+                <i class="material-icons">grade</i>
+                </button>
+
+               @else
                <a href="{{ url('/admin/products/'.$product->id.'/images/select/'.$image->id) }}" class="btn btn-primary btn-fab btn-fab-mini btn-round">
-                <i class="material-icons">favorite</i>
+                <i class="material-icons">grade</i>
                 </a>
+                @endif
            </form>
           </div>
         </div>
