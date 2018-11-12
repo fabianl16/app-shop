@@ -18,6 +18,7 @@
     <!-- CSS Files -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/material-kit.css')}}" rel="stylesheet"/>
+    @yield('styles')
 
 </head>
 
@@ -32,7 +33,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/register')}}">GameRush</a>
+                <a class="navbar-brand" href="{{ url('/')}}">GameRush</a>
             </div>
 
             <div class="collapse navbar-collapse" id="navigation-example">
@@ -48,6 +49,9 @@
         </a>
 
         <ul class="dropdown-menu" role="menu">
+            <li>
+                <a href="{{ url('/home') }}">Dashboard</a>
+            </li>
             @if (auth()->user()->admin)
             <li>
                 <a href=" {{ url('/admin/products')}} ">Gestionar productos</a>
