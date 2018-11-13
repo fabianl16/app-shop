@@ -2,7 +2,7 @@
 @section('title', 'Productos')
 @section('body-class', 'product-page')
 @section('content')
-<div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">   
+<div class="header header-filter" style="background-image: url('{{asset('/img/examples/fondo.jpg')}}');">   
 </div>
 
 <div class="main main-raised">
@@ -30,7 +30,7 @@
             <td class="text-center">{{ $product->id }}</td>
             <td>{{ $product->name }}</td>
             <td>{{ $product->description }}</td>
-            <td>{{ $product->category  ?   $product->category->name : 'General'}}</td>
+            <td>{{ $product->category_name }}</td>
             <td class="text-right">&dollar; {{ $product->price }}</td>
             <td class="td-actions text-right">
                
@@ -39,7 +39,7 @@
                     {{csrf_field() }}
                     {{ method_field('DELETE') }}
 
-                     <a href="#" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs">
+                     <a href="{{ url('/products/'.$product->id) }}" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs" target="_blank">
                     <i class="fa fa-info"></i>
                 </a>
                 <a href=" {{ url('/admin/products/'.$product->id.'/edit') }} " rel="tooltip" title="Editar producto" class="btn btn-success btn-simple btn-xs">

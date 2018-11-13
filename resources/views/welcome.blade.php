@@ -33,12 +33,12 @@
 @section('content')
 
 
-<div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">
+<div class="header header-filter" style="background-image: url('{{asset('/img/examples/fondo.jpg')}}');">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h1 class="title">Ozymandias Software</h1>
-                <h4>Rey de reyes soy yo, Ozymandias. Si alguien quiere saber cuán grande soy y dónde yazgo, que supere alguna de mis obras.</h4>
+                <h1 class="title">GameRush Oficial</h1>
+                <h4>GAMERUSH SA de CV es una empresa dedicada a llevar el entretenimiento más actual en videojuegos a nuestros clientes mediante la comercialización de los mismos en nuestras tiendas especializadas.</h4>
                
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-danger btn-raised btn-lg">
                     <i class="fa fa-play"></i> ¿Como funciona?
@@ -53,7 +53,7 @@
         <div class="section text-center section-landing">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <h2 class="title">Productos 100% Garantizados en diversion</h2>
+                    <h2 class="title">¿Porque confiar en nosotros?</h2>
                     <h5 class="description">Contamos con toda una gama de videojuegos para las plataformas mas populares.</h5>
                 </div>
             </div>
@@ -65,8 +65,8 @@
                             <div class="icon icon-primary">
                                 <i class="material-icons">chat</i>
                             </div>
-                            <h4 class="info-title">First Feature</h4>
-                            <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
+                            <h4 class="info-title">Atendemos tus dudas</h4>
+                            <p>Atendemos rápidamente cualquier consulta que tengas vía correo electronico. No estás sólo, sino que siempre estamos atentos a tus inquietudes.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -74,8 +74,8 @@
                             <div class="icon icon-success">
                                 <i class="material-icons">verified_user</i>
                             </div>
-                            <h4 class="info-title">Second Feature</h4>
-                            <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
+                            <h4 class="info-title">Pago seguro</h4>
+                            <p>Todo pedido que realices será confirmado a través de una llamada. Si no confías en los pagos en línea puedes pagar contra entrega el valor acordado.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -83,8 +83,8 @@
                             <div class="icon icon-danger">
                                 <i class="material-icons">fingerprint</i>
                             </div>
-                            <h4 class="info-title">Third Feature</h4>
-                            <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
+                            <h4 class="info-title">Información privada</h4>
+                            <p>Los pedidos que realices sólo los conocerás tú a través de tu panel de usuario. Nadie más tiene acceso a esta información.</p>
                         </div>
                     </div>
                 </div>
@@ -92,73 +92,30 @@
         </div>
 
         <div class="section text-center">
-            <h2 class="title">Productos disponibles</h2>
+            <h2 class="title">Visita nuestras categorias</h2>
 
             <div class="team">
                 <div class="row">
-                    @foreach ($products as $product)
+                    @foreach ($categories as $category)
                     <div class="col-md-4">
                         <div class="team-player">
-                            <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised img-circle">
+                            <img src="{{ $category->featured_image_url }}" alt="Imagen Representativa de la categoria {{ $category->name }}" class="img-raised img-circle">
                             <h4 class="title">
-                                <a href=" {{ url('/products/'.$product->id) }} "> {{ $product->name }}</a> 
-
-                                <br>
-
-                                <small class="text-muted">{{ $product->category->name }}</small>
+                                <a href=" {{ url('/categories/'.$category->id) }} "> {{ $category->name }}</a>
                             </h4>
-                            <p class="description">{{ $product->description }}</p>
+                            <p class="description">{{ $category->description }}</p>
                             
                         </div>
                     </div>
                     @endforeach
                 </div>
-                <div class="text-center">
-                    {{ $products->links() }}
-                </div>
+                
             </div>
 
         </div>
 
 
-        <div class="section landing-section">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <h2 class="text-center title">Work with us</h2>
-                    <h4 class="text-center description">Divide details about your product or agency work into parts. Write a few lines about each one and contact us about any further collaboration. We will responde get back to you in a couple of hours.</h4>
-                    <form class="contact-form">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Your Name</label>
-                                    <input type="email" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Your Email</label>
-                                    <input type="email" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group label-floating">
-                            <label class="control-label">Your Messge</label>
-                            <textarea class="form-control" rows="4"></textarea>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-4 col-md-offset-4 text-center">
-                                <button class="btn btn-primary btn-raised">
-                                    Send Message
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-        </div>
+        
     </div>
 
 </div>

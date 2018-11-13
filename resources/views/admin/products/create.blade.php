@@ -2,7 +2,7 @@
 @section('title', 'Gestion de productos')
 @section('body-class', 'product-page')
 @section('content')
-<div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">
+<div class="header header-filter" style="background-image: url('{{asset('/img/examples/fondo.jpg')}}');">
 </div>
 
 <div class="main main-raised">
@@ -43,13 +43,34 @@
                 
             </div>
         </div>
-
-            
-
-            <div class="form-group label-floating">
+        <div class="row">
+               
+               <div class="col-sm-6">
+               <div class="form-group label-floating">
                     <label class="control-label">Descripcion corta</label>
                     <input type="text" class="form-control" name="description" value="{{ old('description') }}">>
                 </div>
+            </div> 
+
+            <div class="col-sm-6">
+                 <div class="form-group label-floating">
+                    <label class="control-label">Categoria del producto</label>
+                    <select class="form-control" name="category_id">
+                      <option value="0">General</option>
+                      @foreach ($categories as $category)
+                      <option value="{{ $category->id }}">
+                          {{ $category->name }}
+                      </option> 
+                      @endforeach 
+                    </select>
+                </div>
+                
+            </div>
+        </div>
+
+            
+
+            
 
            <textarea class="form-control" placeholder="Descripcion detallada" rows="5" name="long_description">{{ old('description') }}</textarea>
 
